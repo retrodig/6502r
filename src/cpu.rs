@@ -1,7 +1,8 @@
 use crate::memory::Memory;
 use crate::register::StatusRegister;
 
-struct CPU {
+#[derive(Debug)]
+pub struct CPU {
     a: u8,  // A Register
     x: u8,  // X Register
     y: u8,  // Y Register
@@ -11,7 +12,7 @@ struct CPU {
 }
 
 impl CPU {
-    fn new() -> Self {
+    pub fn new() -> Self {
         CPU {
             a: 0,
             x: 0,
@@ -71,11 +72,11 @@ impl CPU {
     }
 
     fn absolute_x_addr(&self, memory: &Memory) -> u16 {
-        (self.absolute_addr(memory) + self.x as u16)
+        self.absolute_addr(memory) + self.x as u16
     }
 
     fn absolute_y_addr(&self, memory: &Memory) -> u16 {
-        (self.absolute_addr(memory) + self.y as u16)
+        self.absolute_addr(memory) + self.y as u16
     }
 
     fn indirect_addr(&self, memory: &Memory) -> u16 {

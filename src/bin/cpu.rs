@@ -1,3 +1,6 @@
+use mos6502r::cpu::CPU;
+
 fn main() {
-    println!("Hello");
+    let cpu = CPU::new();
+    println!("{:?}", cpu);
 }

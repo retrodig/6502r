@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct StatusRegister {
     pub c: bool, // Carry Flag
     pub z: bool, // Zero Flag
